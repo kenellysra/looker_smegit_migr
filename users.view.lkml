@@ -11,13 +11,13 @@ view: users {
     type: number
     sql: ${TABLE}.age ;;
   }
-  
+
   dimension: age_tier {
     type: tier
     tiers: [20, 30, 40, 50, 60, 70, 80, 90]
     style: integer
     sql: ${age} ;;
-  } 
+  }
 
   dimension: city {
     type: string
@@ -57,6 +57,11 @@ view: users {
   dimension: gender {
     type: string
     sql: ${TABLE}.gender ;;
+  }
+
+  dimension: is_female {
+    type: yesno
+    sql: ${gender} = 'f' ;;
   }
 
   dimension: last_name {
